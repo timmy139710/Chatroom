@@ -1,23 +1,33 @@
 import React, { Component } from 'react';
 import Profile from './profile.js';
+import Contact1 from './contact1.js';
+// import Contact2 from './contact.js';
+// import Contact3 from './contact.js';
+// import Contact4 from './contact.js';
 
 class SidePane extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      contactname: 'Harvey Specter'
+    }
+  }
+  setName = (name) =>{
+    console.log(name)
+    this.setState({
+      contactname: name
+    });
+    this.props.parentCallback(name);
+  }
   render() {
     return (
     <div id="sidepanel">
         <Profile />
 		<div id="contacts">
 			<ul>
-				<li class="contact">
-					<div class="wrap">
-						<span class="contact-status online"></span>
-						<img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
-						<div class="meta">
-							<p class="name">Louis Litt</p>
-							<p class="preview">You just got LITT up, Mike.</p>
-						</div>
-					</div>
-				</li>
+                <Contact1
+                    parentCallback={this.setName}
+                />
 				<li class="contact active">
 					<div class="wrap">
 						<span class="contact-status busy"></span>

@@ -3,8 +3,8 @@ import Messages from './message.js'
 import TextInput from './textinput.js'
 
 class Content extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       key_num: 5,
       messages: [
